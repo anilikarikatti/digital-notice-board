@@ -23,6 +23,8 @@ console.log(chalk.red(process.env.PORT));
 const login = require("./routes");
 
 app.use("/v1", login);
+
+
 app.listen(port, () => {
   console.log(chalk.yellow(`url : http://localhost:${port}`));
 });

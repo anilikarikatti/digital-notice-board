@@ -2,6 +2,7 @@
 
 const { databases } = require("../../config/dbConfig");
 
+//Login authentication
 
 const login = async (req, res) => {
  
@@ -21,6 +22,7 @@ const login = async (req, res) => {
   }
 };
 
+//User Registration table
 
 const register = async (req,res)=>{
 
@@ -41,9 +43,10 @@ const register = async (req,res)=>{
   }  
 }
 
-
+//Announcement table
 
 const announcement = async (req,res)=>{
+  console.log(databases.announcements.findAll())
 
   let {announcement,end_date,status}=req.body
 
@@ -61,8 +64,8 @@ const announcement = async (req,res)=>{
   }  
 }
 
-module.exports = { login };
-module.exports = { register };
-module.exports = { announcement };
+
+module.exports = { login, register,announcement};
+
 
 
