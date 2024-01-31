@@ -1,20 +1,68 @@
 // const dataBase = require("../../config/dbConfig");
 
 const { databases } = require("../../config/dbConfig");
+
+
 const login = async (req, res) => {
-  // for insert values to table
-  // let resp = await databases.users.create({
-  //   name: "anil",
-  //   email: "anil@gmail.com",
-  //   password: "1234",
-  //   MobileNumber: "9999999",
-  // });
+ 
+  let {email,password} = req.body
+  let data =  await databases.users.findOne({"email":email})
 
-  let resp = await databases.users.findAll();
-
-  console.log(resp);
-
-  res.send(resp);
+  if(data.email==email){
+    if(data.password == password){
+      res.status(200).send("success")
+    }
+    else{
+      res.send("Password Invalid")
+    }
+  }
+  else{
+    res.send("User Not Found")
+  }
 };
 
+
+const register = async (req,res)=>{
+
+  let {name,email,password,MobileNumber}=req.body
+
+  try{
+    let resp = await databases.users.create({
+      "name":name ,
+      "email": email,
+      "password": password,
+      "MobileNumber": MobileNumber,
+    });
+    res.send(resp)
+    console.log(resp)
+  }
+  catch(err){
+    res.send('Duplicate Entry',)
+  }  
+}
+
+
+
+const announcement = async (req,res)=>{
+
+  let {announcement,end_date,status}=req.body
+
+  try{
+    let resp = await databases.announcements.create({
+      "announcement":announcement ,
+      "end_date": end_date,
+      "status": status,
+    });
+    res.send(resp)
+    console.log(resp)
+  }
+  catch(err){
+    res.send('status should be either 0 or 1, 0 for false 1 for true')
+  }  
+}
+
 module.exports = { login };
+module.exports = { register };
+module.exports = { announcement };
+
+

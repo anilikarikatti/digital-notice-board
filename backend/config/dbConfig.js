@@ -2,9 +2,9 @@ const { Sequelize } = require("sequelize");
 const chalk = require("chalk");
 const { createTables } = require("../models/init-models");
 
-const database = "noticeBoard";
+const database = "noticeboard";
 const userName = "root";
-const password = "password";
+const password = "Mahiboob@123";
 
 const sequelize = new Sequelize(database, userName, password, {
   host: "localhost",

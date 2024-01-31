@@ -18,7 +18,7 @@ module.exports = function (sequelize, dataType) {
     password: {
       type: dataType.STRING(255),
       allowNull: false,
-      unique: true,
+      unique: false,
     },
     MobileNumber: {
       type: dataType.STRING(255),
