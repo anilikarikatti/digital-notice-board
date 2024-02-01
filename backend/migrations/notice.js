@@ -1,15 +1,16 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
-      return queryInterface.createTable("announcements", {
-        announce_id: {
+      return queryInterface.createTable("notices", {
+        notice_id: {
           autoIncrement: true,
           type: Sequelize.INTEGER,
           allowNull: false,
           primaryKey: true,
         },
-        announcement: {
+        notice_url: {
           type: Sequelize.STRING(255),
           allowNull: false,
+          unique:true,
         },
         end_date: {
             type: Sequelize.DATEONLY,
@@ -34,7 +35,7 @@ module.exports = {
       });
     },
     async down(queryInterface, Sequelize) {
-      await queryInterface.dropTable("announcements");
+      await queryInterface.dropTable("notices");
     },
   };
   
