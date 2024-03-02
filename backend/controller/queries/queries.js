@@ -22,6 +22,14 @@ const getUsers = async (req,res)=>{
     res.send(JSON.stringify(users.all))
 }
 
+const userProfile = async (req,res)=>{
+    let {email} = req.body
+    let user = {
+        "profile" : await databases.users.findAll({where:{"email":email}})
+    }
+    res.send(user.profile)
+}
+
 const getNotices = async (req,res)=>{
     let data = databases.notices
     
@@ -41,4 +49,4 @@ const getNotices = async (req,res)=>{
     res.send(notice.active)
 }
 
-module.exports = {getAnnouncements,getUsers,getNotices};
+module.exports = {getAnnouncements,getUsers,getNotices,userProfile};

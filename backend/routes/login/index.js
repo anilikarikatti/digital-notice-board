@@ -21,5 +21,11 @@ router.get("/users",queries.getUsers)
 
 router.get("/notices",queries.getNotices)
 
+router.post("/profile",queries.userProfile)
+
+router.put("/updatepassword",login.updatePassword)
+
+
+
 
 module.exports = router;

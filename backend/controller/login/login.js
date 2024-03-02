@@ -102,7 +102,7 @@ const notice = async (req,res)=>{
 }
 
 
-module.exports = { login, register,announcement, notice};
+module.exports = { login, register,announcement, notice, updatePassword};
 
 
 
