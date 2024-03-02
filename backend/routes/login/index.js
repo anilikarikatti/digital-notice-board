@@ -15,11 +15,11 @@ router.post("/announcements",login.announcement)
 
 router.post("/noticepage",login.notice)
 
-router.get("/announcements",queries.announcementQuery)
+router.get("/announcements",queries.getAnnouncements)
 
-router.get("/users",queries.userQuery)
+router.get("/users",queries.getUsers)
 
-router.get("/notices",queries.noticeQuery)
+router.get("/notices",queries.getNotices)
 
 
 module.exports = router;

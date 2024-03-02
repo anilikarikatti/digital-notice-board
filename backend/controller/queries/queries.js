@@ -1,6 +1,6 @@
 const { databases } = require("../../config/dbConfig");
 
-const announcementQuery = async (req,res)=>{
+const getAnnouncements = async (req,res)=>{
     let data = databases.announcements
     
     let announcement = {
@@ -15,14 +15,14 @@ const announcementQuery = async (req,res)=>{
     res.send(announcement.all)
 }
 
-const userQuery = async (req,res)=>{
+const getUsers = async (req,res)=>{
     let users = {
         "all" : await databases.users.findAll({attributes:["name"]})
     }
     res.send(JSON.stringify(users.all))
 }
 
-const noticeQuery = async (req,res)=>{
+const getNotices = async (req,res)=>{
     let data = databases.notices
     
     let notice = {
@@ -41,4 +41,4 @@ const noticeQuery = async (req,res)=>{
     res.send(notice.active)
 }
 
-module.exports = {announcementQuery,userQuery,noticeQuery};
+module.exports = {getAnnouncements,getUsers,getNotices};

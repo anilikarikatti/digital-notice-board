@@ -25,11 +25,24 @@ const login = async (req, res) => {
   }
 };
 
+const updatePassword = async (req,res)=>{
+  let {email,newPassword} = req.body
+  // let data = await databases.users.findOne({where:{"email":email}})
+
+  try{
+    let resp = await databases.users.Update({password:newPassword},{where:{"email":email}})
+    res.status(200).send("Password changed successfully" )
+  }
+  catch{
+    res.send("Something wrong")
+  }
+  
+}
 //User Registration table
 
 const register = async (req,res)=>{
 
-  let {name,email,password,MobileNumber}=req.body
+  let {name,email,password,MobileNumber,Designation}=req.body
 
   // console.log("**",name , email, password,  MobileNumber,"**")
 
@@ -39,6 +52,7 @@ const register = async (req,res)=>{
       "email": email,
       "password": password,
       "MobileNumber": MobileNumber,
+      "Designation": Designation
     });
     res.send(resp)
     console.log(resp)

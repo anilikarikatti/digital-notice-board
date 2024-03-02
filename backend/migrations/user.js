@@ -26,6 +26,11 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      Designation:{
+        type: Sequelize.STRING(255),
+        allowNull: false,
+        unique: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
