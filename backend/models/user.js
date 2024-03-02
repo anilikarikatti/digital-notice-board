@@ -25,5 +25,10 @@ module.exports = function (sequelize, dataType) {
       allowNull: false,
       unique: true,
     },
+    Designation:{
+      type: dataType.STRING(255),
+      allowNull: false,
+      unique: false,
+    },
   });
 };
