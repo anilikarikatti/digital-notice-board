@@ -25,7 +25,7 @@ const getUsers = async (req,res)=>{
 const userProfile = async (req,res)=>{
     let {email} = req.body
     let user = {
-        "profile" : await databases.users.findAll({where:{"email":email}})
+        "profile" : await databases.users.findAll({attributes:['name','email','MobileNumber','Designation'],where:{"email":email}})
     }
     res.send(user.profile)
 }
