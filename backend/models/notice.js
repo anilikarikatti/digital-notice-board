@@ -6,6 +6,11 @@ module.exports = function (sequelize, dataType) {
         allowNull: false,
         primaryKey: true,
       },
+      notice_name:{
+        type: dataType.STRING(255),
+        allowNull: false,
+        unique:true,
+      },
       notice_url: {
         type: dataType.STRING(255),
         allowNull: false,

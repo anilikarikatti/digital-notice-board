@@ -92,16 +92,19 @@ const announcement = async (req,res)=>{
 
 const notice = async (req,res)=>{
 
-  let {notice_url, end_date, status} = req.body
+  let {notice_name,notice_url,start_date, end_date, status} = req.body
 
   try{
+    console.log("****")
     let resp = await databases.notices.create({
+      "notice_name":notice_name,
       "notice_url":notice_url,
+      "start_date": start_date,
       "end_date": end_date,
       "status": status,
     });
-    res.send(resp)
-    // console.log(resp)
+    res.status(200).send(resp)
+    console.log(resp)
   }
   catch(err){
     res.send('File Already Exist')
