@@ -16,6 +16,10 @@ module.exports = function (sequelize, dataType) {
         allowNull: false,
         unique:true,
       },
+      start_date: {
+        type: dataType.DATEONLY,
+        allowNull:false,
+      },
       end_date: {
         type: dataType.DATEONLY,
         allowNull:false,
@@ -23,6 +27,8 @@ module.exports = function (sequelize, dataType) {
       status: {
         type: dataType.BOOLEAN,
         defaultValue: true,
+        allowNull:false,
+
       }
     });
   };
