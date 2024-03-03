@@ -34,15 +34,15 @@ const getNotices = async (req,res)=>{
     let data = databases.notices
     
     let notice = {
-        "all" : await data.findAll({attributes:["notice_url"]}),
+        "all" : await data.findAll({attributes:["notice_name"]}),
 
-        "active" : await data.findAll({attributes:["notice_url"],
+        "active" : await data.findAll({attributes:["notice_name"],
                                             where:{"status":1}}),
 
-        "inactive" : await data.findAll({attributes:["notice_url"],
+        "inactive" : await data.findAll({attributes:["notice_name"],
                                             where:{"status":0}}),
 
-        "validity" : await data.findAll({attributes:["notice_url","end_date"]})
+        "validity" : await data.findAll({attributes:["notice_name","end_date"]})
         
     }
 

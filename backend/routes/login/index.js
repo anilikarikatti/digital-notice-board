@@ -7,23 +7,23 @@ const login =  require("../../controller/login/login");
 const queries  = require("../../controller/queries/queries");
 
 
-router.post("/loginpage", login.login);
+router.post("/loginpage", login.login);             //tested
 
-router.post("/registerpage",login.register);
+router.post("/registerpage",login.register);        //tested
  
 router.post("/announcements",login.announcement)
 
-router.post("/noticepage",login.notice)
+router.post("/noticepage",login.notice)             //tested
 
 router.get("/announcements",queries.getAnnouncements)
 
-router.get("/users",queries.getUsers)
+router.get("/users",queries.getUsers)                  //tested
 
-router.get("/notices",queries.getNotices)
+router.get("/notices",queries.getNotices)           //tested
 
-router.post("/profile",queries.userProfile)
+router.post("/profile",queries.userProfile)         //tested
 
-router.put("/updatepassword",login.updatePassword)
+router.put("/updatepassword",login.updatePassword)      //tested
 
 
 
