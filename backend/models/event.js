@@ -1,12 +1,16 @@
 module.exports = function (sequelize, dataType) {
-    return sequelize.define("announcements", {
-      announce_id: {
+    return sequelize.define("events", {
+      event_id: {
         autoIncrement: true,
         type: dataType.INTEGER,
         allowNull: false,
         primaryKey: true,
       },
-      announcement: {
+      event_name: {
+        type: dataType.STRING(255),
+        allowNull: false,
+      },
+      event_url: {
         type: dataType.STRING(255),
         allowNull: false,
       },

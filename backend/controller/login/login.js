@@ -71,14 +71,15 @@ const register = async (req,res)=>{
 
 //Announcement table
 
-const announcement = async (req,res)=>{
+const event = async (req,res)=>{
   // console.log(await databases.announcements.findAll())
 
-  let {announcement,end_date,status}=req.body
+  let {event_name,event_url,end_date,status}=req.body
 
   try{
-    let resp = await databases.announcements.create({
-      "announcement":announcement ,
+    let resp = await databases.events.create({
+      "event_name":event_name ,
+      "event_url":event_url,
       "end_date": end_date,
       "status": status,
     });
@@ -86,19 +87,20 @@ const announcement = async (req,res)=>{
     console.log(resp)
   }
   catch(err){
-    res.send('Announcement Already Exist')
+    res.send('Event Already Exist')
   }  
 }
 
 const notice = async (req,res)=>{
 
-  let {notice_name,notice_url,start_date, end_date, status} = req.body
+  let {notice_name,notice_url,description,start_date, end_date, status} = req.body
 
   try{
     console.log("****")
     let resp = await databases.notices.create({
       "notice_name":notice_name,
       "notice_url":notice_url,
+      "description":description,
       "start_date": start_date,
       "end_date": end_date,
       "status": status,
@@ -112,7 +114,7 @@ const notice = async (req,res)=>{
 }
 
 
-module.exports = { login, register,announcement, notice, updatePassword};
+module.exports = { login, register,event, notice, updatePassword};
 
 
 

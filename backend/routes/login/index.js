@@ -11,11 +11,11 @@ router.post("/loginpage", login.login);             //tested
 
 router.post("/registerpage",login.register);        //tested
  
-router.post("/announcements",login.announcement)
+router.post("/eventspage",login.event)
 
 router.post("/noticepage",login.notice)             //tested
 
-router.get("/announcements",queries.getAnnouncements)
+// router.get("/announcements",queries.getAnnouncements)
 
 router.get("/users",queries.getUsers)                  //tested
 

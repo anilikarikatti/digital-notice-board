@@ -1,13 +1,17 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
-      return queryInterface.createTable("announcements", {
-        announce_id: {
+      return queryInterface.createTable("events", {
+        event_id: {
           autoIncrement: true,
           type: Sequelize.INTEGER,
           allowNull: false,
           primaryKey: true,
         },
-        announcement: {
+        event_name: {
+          type: Sequelize.STRING(255),
+          allowNull: false,
+        },
+        event_url: {
           type: Sequelize.STRING(255),
           allowNull: false,
         },
@@ -34,7 +38,7 @@ module.exports = {
       });
     },
     async down(queryInterface, Sequelize) {
-      await queryInterface.dropTable("announcements");
+      await queryInterface.dropTable("events");
     },
   };
   

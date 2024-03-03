@@ -1,18 +1,18 @@
 const { databases } = require("../../config/dbConfig");
 
-const getAnnouncements = async (req,res)=>{
-    let data = databases.announcements
+const getEvents = async (req,res)=>{
+    let data = databases.events
     
-    let announcement = {
-        "all" : await data.findAll({attributes:["annoucement"]}),
-        "active" : await data.findAll({attributes:["announcement"],
+    let event = {
+        "all" : await data.findAll({attributes:["event_name"]}),
+        "active" : await data.findAll({attributes:["event_name"],
                                             where:{"status":1}}),
-        "inactive" : await data.findAll({attributes:["announcement"],
+        "inactive" : await data.findAll({attributes:["event_name"],
                                             where:{"status":0}}),
-        "validity" : await data.findAll({attributes:["annoucement","end_date"]})
+        "validity" : await data.findAll({attributes:["event_name","end_date"]})
     }
 
-    res.send(announcement.all)
+    res.send(event.all)
 }
 
 const getUsers = async (req,res)=>{
@@ -49,4 +49,4 @@ const getNotices = async (req,res)=>{
     res.send(notice.active)
 }
 
-module.exports = {getAnnouncements,getUsers,getNotices,userProfile};
+module.exports = {getEvents,getUsers,getNotices,userProfile};
