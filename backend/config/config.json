@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "Mahiboob@123",
+      "password": "root",
       "database": "noticeboard",
       "host": "localhost",
       "dialect": "mysql",

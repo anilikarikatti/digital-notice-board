@@ -51,7 +51,7 @@ const register = async (req,res)=>{
 
   let {name,email,password,MobileNumber,Designation}=req.body
 
-  console.log("**",name , email, password,  MobileNumber,Designation,"**")
+  console.log("**",name , email , password ,  MobileNumber , Designation ,"**")
 
   try{
     let resp = await databases.users.create({
@@ -69,50 +69,53 @@ const register = async (req,res)=>{
   }  
 }
 
-//Announcement table
 
-const announcement = async (req,res)=>{
-  // console.log(await databases.announcements.findAll())
+const announcement = async (req,res)=> {
 
-  let {announcement,end_date,status}=req.body
+  console.log("**************coming here");
 
-  try{
+  let {filename} = req.file
+  let {name , startDate, endDate  } = req.body
+
+
+  try {
     let resp = await databases.announcements.create({
-      "announcement":announcement ,
-      "end_date": end_date,
-      "status": status,
-    });
+      "announcement":name,
+      "end_date": endDate,
+      "start_date":startDate,
+      "url":filename
+      });
+
     res.send(resp)
     console.log(resp)
   }
   catch(err){
-    res.send('Announcement Already Exist')
+    res.send(err)
   }  
 }
 
 const notice = async (req,res)=>{
 
-  let {notice_name,notice_url,start_date, end_date, status} = req.body
+  let {name,description,startDate, endDate} = req.body
 
   try{
-    console.log("****")
     let resp = await databases.notices.create({
-      "notice_name":notice_name,
-      "notice_url":notice_url,
-      "start_date": start_date,
-      "end_date": end_date,
-      "status": status,
+      "notice_name":name,
+      "description":description,
+      "start_date": startDate,
+      "end_date": endDate,
+      "status": 1,
     });
     res.status(200).send(resp)
     console.log(resp)
   }
   catch(err){
-    res.send('File Already Exist')
+    res.send(err)
   }  
 }
 
 
-module.exports = { login, register,announcement, notice, updatePassword};
+module.exports = { login, register,announcement, notice, updatePassword };
 
 
 

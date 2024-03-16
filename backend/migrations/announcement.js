@@ -11,6 +11,15 @@ module.exports = {
           type: Sequelize.STRING(255),
           allowNull: false,
         },
+        url: {
+          type: Sequelize.STRING(255),
+          allowNull: false,
+          unique:true,
+        },
+        start_date: {
+          type: Sequelize.DATEONLY,
+          allowNull: false,
+        },
         end_date: {
             type: Sequelize.DATEONLY,
             allowNull: false,

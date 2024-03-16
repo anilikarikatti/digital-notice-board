@@ -12,11 +12,11 @@ module.exports = {
           allowNull: false,
           unique:true,
         },
-        notice_url: {
+        description:{
           type: Sequelize.STRING(255),
           allowNull: false,
-          unique:true,
         },
+        
         start_date: {
           type: Sequelize.DATEONLY,
           allowNull: false,

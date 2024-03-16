@@ -4,7 +4,7 @@ const { createTables } = require("../models/init-models");
 
 const database = "noticeboard";
 const userName = "root";
-const password = "Mahiboob@123";
+const password = "root";
 
 const sequelize = new Sequelize(database, userName, password, {
   host: "localhost",

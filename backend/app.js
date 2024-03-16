@@ -3,9 +3,15 @@ const logger = require("morgan");
 const chalk = require("chalk");
 const app = express();
 
+
+var cors = require('cors')
+ 
+app.use(cors())
+
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+
 
 app.use(logger("dev"));
 require("dotenv").config();

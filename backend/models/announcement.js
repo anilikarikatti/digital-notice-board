@@ -10,6 +10,15 @@ module.exports = function (sequelize, dataType) {
         type: dataType.STRING(255),
         allowNull: false,
       },
+      url: {
+        type: dataType.STRING(255),
+        allowNull: false,
+        unique:true,
+      },
+      start_date: {
+        type: dataType.DATEONLY,
+        allowNull:false,
+      },
       end_date: {
         type: dataType.DATEONLY,
         allowNull:false,

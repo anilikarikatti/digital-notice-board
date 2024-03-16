@@ -1,0 +1,5 @@
+add admin
+
+ insert into users(name, email , password , MobileNumber , Designation ) values ("ak","ak@gmail.com","1234","8989898989","admin");
+
+
